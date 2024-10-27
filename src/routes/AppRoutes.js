@@ -6,14 +6,9 @@ import { isAuthenticated } from "../common/utils";
 import ErrorBoundary from "../common/component/ErrorBoundary";
 import NotFound from "../pages/NotFound";
 
-
-const PublicRoute = ({ children }) => {
-    return !isAuthenticated() ? children : <Navigate to="/" />;
-};
 const PrivateRoute = ({ children }) => {
     return isAuthenticated() ? children : <Navigate to="/login" />;
 };
-
 
 const AppRoutes = () => {
     return (

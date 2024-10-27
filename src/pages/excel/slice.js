@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialValues = {
@@ -13,10 +12,7 @@ const slice = createSlice({
     initialState: initialValues,
     reducers: {
         clearAll:(state) => {
-            state.file =initialValues.file,
-            state.loading =initialValues.loading,
-            state.chips =initialValues.chips,
-            state.dataValues =initialValues.dataValues
+            state= initialValues
         },
         setFile: (state, action) => {
             state.file = action.payload;
