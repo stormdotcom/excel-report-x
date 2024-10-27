@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, Typography, IconButton, CircularProgress } from '@mui/material';
 import { UploadFile, Delete } from '@mui/icons-material';
-import * as XLSX from 'xlsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { STATE_SLICE_KEY } from '../constants';
 import { actions } from '../slice';
