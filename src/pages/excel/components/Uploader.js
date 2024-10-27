@@ -22,7 +22,8 @@ const Uploader = () => {
 
   const parseExcelFile = async (file) => {
     dispatch(actions.setLoading(true));
-    const worker = new Worker(new URL('../excelWorker.js', import.meta.url));
+    const worker = new Worker(new URL('../excelWorker.js', import.meta.url), { type: 'module' });
+
     worker.onmessage = (e) => {
       const { headers, jsonData } = e.data;
 

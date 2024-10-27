@@ -1,5 +1,6 @@
-// excelWorker.js
-importScripts('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js');
+/* eslint-env worker */
+import * as XLSX from 'xlsx';
+
 
 self.onmessage = (e) => {
   const file = e.data;
@@ -14,7 +15,6 @@ self.onmessage = (e) => {
     const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
     const headers = jsonData[0] || [];
 
-    // Send both headers and jsonData as an object to the main thread
     self.postMessage({ headers, jsonData });
   };
 
