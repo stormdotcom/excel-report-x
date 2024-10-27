@@ -1,0 +1,56 @@
+{
+    "shapes": [
+        {
+            "id": 1722519750825,
+            "color": "#3357FF",
+            "type": "circle",
+            "x": 83.11456298828125,
+            "y": 50,
+            "radius": 63.7808748764079,
+            "label": "Sample 1"
+        },
+        {
+            "id": 1722519871915,
+            "color": "#3357FF",
+            "type": "rect",
+            "x": 311.11456298828125,
+            "y": 397,
+            "width": 106,
+            "height": 31,
+            "label": "Sample 2"
+        },
+        {
+            "id": 1722519891639,
+            "color": "#3357FF",
+            "type": "rect",
+            "x": 554.1145629882812,
+            "y": 34,
+            "width": 75,
+            "height": 40,
+            "label": "Sample 3"
+        }
+    ],
+    "shapeTypes": [
+        {
+            "value": "circle",
+            "label": "Circle"
+        },
+        {
+            "value": "rect",
+            "label": "Rectangle"
+        },
+        {
+            "value": "roundedRect",
+            "label": "Rounded Rectangle"
+        }
+    ],
+    "colors": [
+        "#FF5733",
+        "#33FF57",
+        "#3357FF",
+        "#F333FF",
+        "#33FFF5",
+        "#FFEB33",
+        "#FF33A8"
+    ]
+}
