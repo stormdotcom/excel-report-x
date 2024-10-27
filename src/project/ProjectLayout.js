@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import React from "react";
 import Header from "../common/component/Header";
-import { auth } from "../app/firebase";
+
 import Footer from "../common/component/Footer";
 const ProjectLayout = ({ children }) => {
-    const handleLogout = () => auth.signOut();
+    const handleLogout = ()=>{};
     return (
         <Box
             sx={{ minHeight: "100vh", width: 1 }}
