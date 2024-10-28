@@ -3,7 +3,8 @@ import { Box} from '@mui/material';
 import Uploader from './Uploader';
 import ListHeader from './ListHeader';
 import TableWrapper from './TableWrapper';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ExcelWrapper = () => {
 
@@ -29,6 +30,7 @@ const ExcelWrapper = () => {
     <Uploader />
     <ListHeader />
     <TableWrapper />
+    <ToastContainer />
     </Box>
   );
 };

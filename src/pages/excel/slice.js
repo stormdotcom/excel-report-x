@@ -12,7 +12,9 @@ const slice = createSlice({
     initialState: initialValues,
     reducers: {
         clearAll:(state) => {
-            state= initialValues
+            state.file = null;
+            state.chips = [];
+            state.dataValues = [];
         },
         setFile: (state, action) => {
             state.file = action.payload;

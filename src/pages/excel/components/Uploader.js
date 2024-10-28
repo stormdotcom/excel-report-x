@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Button, Typography, IconButton, CircularProgress } from '@mui/material';
-import { UploadFile, Delete } from '@mui/icons-material';
+import { UploadFile, Delete, AttachFile } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { STATE_SLICE_KEY } from '../constants';
 import { actions } from '../slice';
+import { toast } from 'react-toastify';
 
 const Uploader = () => {
-  const [worker, setWorker] = useState(null);
+
   const {file, loading} = useSelector(s => s[STATE_SLICE_KEY])
   const dispatch = useDispatch();
 
@@ -19,7 +20,18 @@ const Uploader = () => {
       parseExcelFile(uploadedFile);
     }
   };
-
+  const handleUpload = () => {
+    toast.warn('API not found, please add your api', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  }
   const parseExcelFile = async (file) => {
     dispatch(actions.setLoading(true));
     const worker = new Worker(new URL('../excelWorker.js', import.meta.url), { type: 'module' });
@@ -54,7 +66,7 @@ const Uploader = () => {
         borderColor: 'grey.300',
         borderRadius: 2,
         width: '100%',
-        maxWidth: 400,
+        maxWidth: 600,
         textAlign: 'center',
         bgcolor: 'background.paper',
         boxShadow: 3,
@@ -64,16 +76,31 @@ const Uploader = () => {
         Excel Uploader
       </Typography>
 
-      <Button
+   <Box sx={{display:"flex",  alignItems: 'center',
+        justifyContent: 'space-between',    p: 3,    gap: 2}}>
+   <Button
+        sx={{mx:1}}
+        variant="contained"
+        component="label"
+        startIcon={<AttachFile />}
+        color="primary"
+        disabled={loading}
+      >
+        {file ? 'Change File' : 'Attach Excel File'}
+        <input type="file" hidden onChange={handleFileUpload} accept=".xlsx, .xls" />
+      </Button>
+
+      {file && <Button
+        sx={{mx:1}}
         variant="contained"
         component="label"
         startIcon={<UploadFile />}
         color="primary"
-        disabled={loading}
+        onClick={handleUpload}
       >
-        {file ? 'Change File' : 'Upload Excel File'}
-        <input type="file" hidden onChange={handleFileUpload} accept=".xlsx, .xls" />
-      </Button>
+        Upload  File
+      </Button>}
+   </Box>
 
       {loading && <CircularProgress color="primary" />}
 
